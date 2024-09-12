@@ -17,6 +17,7 @@ apiRouter.use("/spokenData", spokenDataRoutes)
 apiRouter.use("/reminders", remindersRoutes)
 
 baseLevelRouter.use("/api", apiRouter)
+baseLevelRouter.get("/", (req, res) => res.status(200).send("online"))
 
 app.use(baseLevelRouter)
 app.use(morgan())
