@@ -18,6 +18,7 @@ class AudioPlayer:
         self.client = OPENAI_CLIENT
 
         self.stop_flag=False
+        self.playing = False
 
         self.output_queue=queue.Queue()
         self.output_buffer=np.zeros((int(SampleRate * BlockSize / 1000), 1), dtype=np.float32)
@@ -42,12 +43,15 @@ class AudioPlayer:
     def _play(self, file_path):
         self._stop()
         self.stop_flag = False
+        self.playing = True
         blocksize=BlockSize
 
         with sf.SoundFile(file_path, mode="r") as file:
             for block in file.blocks(blocksize=blocksize, dtype="float32"):  # Read audio in chunks (frames)
                 if self.stop_flag:
                     break  # Stop playback if stop flag is triggered
+                else:
+                    self.playing = True
 
                 # Check the number of dimensions
                 if len(block.shape) == 1:
@@ -68,14 +72,18 @@ class AudioPlayer:
                 # Put reshaped block into queue
                 socket.emit("outdata", to=socket.indata_sender,outdata=block)
 
+        self.playing = False
 
-        
 
     def _stop(self):
         self.stop_flag = True
         #clearing the queue
         with self.output_queue.mutex:
             self.output_queue.queue.clear()
+
+        self.playing = False
+        
+        socket.emit("stop_audio", socket.indata_sender)
         
     def _tts_and_play(self, text, voice="alloy", speed=1):
         self._stop()
@@ -98,16 +106,17 @@ class AudioPlayer:
         self._play(self.temp.name)
 
     def stop(self):
-        thread=Thread(name="AIAssistant_stop_playing", target=self._stop)
+        #if not self.playing: return
+        thread=Thread(daemon=True, name="AIAssistant_stop_playing", target=self._stop)
         thread.start()
         return thread
     
     def play(self, file_path):
-        thread=Thread(name="AIAssistant_play_audio", target=self._play, args=(file_path,))
+        thread=Thread(daemon=True, name="AIAssistant_play_audio", target=self._play, args=(file_path,))
         thread.start()
         return thread
 
     def tts_and_play(self, text, voice="nova", speed=1):
-        thread=Thread(name="AIAssistant_TTS_and_play", target=self._tts_and_play, args=(text, voice, speed))
+        thread=Thread(daemon=True, name="AIAssistant_TTS_and_play", target=self._tts_and_play, args=(text, voice, speed))
         thread.start()
         return thread

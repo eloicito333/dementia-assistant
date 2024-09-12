@@ -23,8 +23,9 @@ transcriber_options = {
 
 
 class AudioBuffer:
-    def __init__(self, number):
+    def __init__(self, number, audio_player):
         self.number = number
+        self.audio_player = audio_player
 
         self.buffer = queue.Queue()
         self.temp = tempfile.NamedTemporaryFile(prefix="recorder_",suffix=".wav", delete=False)
@@ -47,6 +48,9 @@ class AudioBuffer:
     def put(self, data):
         self.buffer.put(data)
         self.blocks_speaking -= 1
+
+        if FlushBlocks - self.blocks_speaking > 33:
+            self.audio_player.stop()
     
     def get_file_content(self):
         self.save_to_file()
@@ -79,7 +83,7 @@ class StreamHandler:
         
         self.running = True
         self.waiting = 0
-        self.buffers = [AudioBuffer(number=0), AudioBuffer(number=1), AudioBuffer(number=2)]
+        self.buffers = [AudioBuffer(number=0, audio_player=self.audio_player), AudioBuffer(number=1, audio_player=self.audio_player)]
         self.buffer_counter = 2
         self.speaking = False
         self.blocks_speaking = 0
@@ -100,7 +104,7 @@ class StreamHandler:
         poped_buffer=self.buffers.pop(number)
 
         #creating new buffer on index 1
-        self.buffers.append(AudioBuffer(number=self.buffer_counter))
+        self.buffers.append(AudioBuffer(number=self.buffer_counter, audio_player=self.audio_player))
         self.buffer_counter+=1
 
         return poped_buffer
@@ -201,7 +205,7 @@ class StreamHandler:
             for buffer in self.buffers:
                 buffer.save_to_file()
             
-            Thread(target=self.process, name="AIAssistant_processing_audio").start()
+            Thread(daemon=True, target=self.process, name="AIAssistant_processing_audio").start()
 
     def start(self):
         try:

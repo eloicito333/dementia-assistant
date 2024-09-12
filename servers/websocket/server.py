@@ -9,7 +9,7 @@ from threading import Thread
 from flask import Flask
 
 from utils.io import encode_data, decode_data  # Import the utility functions
-from auth import authenticate_user
+from auth import authenticate_token
 
 class SocketServer:
     def __init__ (self, port=5000):
@@ -32,7 +32,7 @@ class SocketServer:
         self.indata_sender=None
 
     def _authenticate_token(self, token):
-        return authenticate_user(token)
+        return authenticate_token(token)
     
     def connect_handler(self, sid, environ, auth):
         # Extract token from the HTTP headers
@@ -40,6 +40,7 @@ class SocketServer:
 
         if token and self._authenticate_token(token):
             print('Client connected:', sid)
+            self.indata_sender = sid
         else:
             print('Unauthorized connection attempt from:', sid)
             self.sio.disconnect(sid)  # Disconnect unauthorized clients
@@ -48,7 +49,7 @@ class SocketServer:
         print('Client disconnected:', sid)
     
     def _run(self):
-        thread = Thread(target=self.app.run, kwargs={"port": self.port}, name="WS Server", daemon=True)
+        thread = Thread(target=self.app.run, kwargs={"port": self.port, "host": "0.0.0.0"}, name="WS Server", daemon=True)
         thread.start()
 
         return thread

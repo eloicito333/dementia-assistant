@@ -1,0 +1,23 @@
+from api_helper import api_helper
+from function_calling.function_parent_class import OpenAIFunction
+
+description = {
+    "name": "get_all_reminder",
+    "description": "Get all existing reminders.",
+}
+
+class GetAllReminders(OpenAIFunction):
+
+    @staticmethod
+    def getName():
+        return description["name"]
+
+    def __init__(self):
+        self.description = description
+        self.meanwhile = ["Mmm...", "Un momenteeet..."]
+
+    def apply(self):
+
+        results = api_helper.reminders_db.get_all_reminders()
+
+        return results

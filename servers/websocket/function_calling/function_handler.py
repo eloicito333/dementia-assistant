@@ -2,6 +2,12 @@ from .vector_data_retrieval import VectorDataRetrieval
 from .get_current_datetime import GetCurerntDatetime
 from .function_parent_class import OpenAIFunction
 
+from .reminders.create import CreateReminder
+from .reminders.update import UpdateReminder
+from .reminders.delete import DeleteReminder
+from .reminders.get_by_id import GetReminderById
+from .reminders.get_all import GetAllReminders
+
 from openai.types.chat import ChatCompletionMessage, ChatCompletionToolParam
 
 from program_settings import verbose
@@ -11,7 +17,7 @@ from threading import Thread
 
 class FunctionHandler:
     def __init__(self):
-        self.handler_array= [VectorDataRetrieval(), GetCurerntDatetime()]
+        self.handler_array= [VectorDataRetrieval(), GetCurerntDatetime(), CreateReminder(), UpdateReminder(), DeleteReminder(), GetReminderById(), GetAllReminders(),]
 
         self.handlers = dict(zip([handler.getName() for handler in self.handler_array], self.handler_array))
 
