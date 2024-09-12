@@ -63,10 +63,9 @@ class AudioBuffer:
 
 
 class StreamHandler:
-    def __init__(self, transcriber, transcriber_options, result_handler, audio_player, threshold=0.01, input_device=None, output_device=None, contaminated_streams=False):
+    def __init__(self, audio_player, threshold=0.01, input_device=None, output_device=None, contaminated_streams=False):
         self.contaminated_streams = contaminated_streams
 
-        self.transcriber = transcriber
         self.threshold = threshold
         self.input_device = input_device
         self.output_device=output_device
@@ -83,7 +82,6 @@ class StreamHandler:
 
         self.transcriber_options = transcriber_options
 
-        self.result_handler = result_handler
 
     def _is_there_voice(self, indata, frames):
         freq = np.argmax(np.abs(np.fft.rfft(indata[:, 0]))) * SampleRate / frames
@@ -117,7 +115,7 @@ class StreamHandler:
         def sendIndata():
             socket.emit("indata", indata=indata, isThereVoice=isThereVoice)
         
-        Thread(target=sendIndata, name="Send indata").start()
+        Thread(target=sendIndata, name="Send indata", daemon=True).start()
 
     def callback(self, indata, outdata, frames, _time, status):
 
@@ -226,7 +224,7 @@ class StreamHandler:
                 for buffer in self.buffers:
                     buffer.save_to_file()
                 
-                Thread(target=self.process, name="AIAssistant_processing_audio").start()
+                Thread(target=self.process, name="AIAssistant_processing_audio", daemon=True).start()
 
     def start(self):
         try:

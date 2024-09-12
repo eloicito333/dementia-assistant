@@ -26,17 +26,8 @@ def main():
     #initialize player
     audio_player = AudioPlayer()
 
-    #initialize assistant
-    main_assistant = "asd"
-
-    #initialize the transcription handler
-    handler= "asd"
-
-    # Initialize the Transcriber
-    transcriber = "asd"
-
     # Initialize and start the Recorder
-    recorder = StreamHandler(transcriber=transcriber, transcriber_options=transcriber_options, result_handler=handler, audio_player=audio_player)
+    recorder = StreamHandler(audio_player=audio_player)
     recorder.start()
 
 if __name__ == "__main__":

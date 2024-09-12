@@ -23,15 +23,20 @@ class AudioPlayer:
             self.output_queue.put(block)
 
         socket.on("outdata", outdata)
+        socket.on("stop_audio", self.stop)
+
 
 
     def _stop(self):
+        print("STOP AUDIO")
+
         self.stop_flag = True
         #clearing the queue
         with self.output_queue.mutex:
             self.output_queue.queue.clear()
+        
 
     def stop(self):
-        thread=Thread(name="AIAssistant_stop_playing", target=self._stop)
+        thread=Thread(daemon=True, name="AIAssistant_stop_playing", target=self._stop)
         thread.start()
         return thread
