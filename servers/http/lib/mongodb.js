@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb"
 import {config} from "../config.js"
 
-const client = new MongoClient(config.MONGODB_URI,  { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(config.MONGODB_URI);
 
 await client.connect();
 // set namespace
