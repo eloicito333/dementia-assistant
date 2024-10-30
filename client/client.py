@@ -40,7 +40,7 @@ class SocketClient:
 
         Thread(target=self.sio.wait, name="wait for WS requests").start()
     
-    def connect_handler():
+    def connect_handler(_):
             print("Connected to WS server succesfully!")
 
     def on(self, event_name, event_handler):

@@ -32,12 +32,12 @@ class RemindersDB:
         return response.json()
     
     def update_reminder(self, id, update_fields):
-        response = requests.put(self.url+"/reminders/"+ id, json=update_fields, headers=self.headers)
+        response = requests.put(self.url+"/reminders/"+ str(id), json=update_fields, headers=self.headers)
         
         return response.json()
     
     def delete_reminder(self, id):
-        response = requests.delete(self.url+"/reminders/" + id, headers=self.headers)
+        response = requests.delete(self.url+"/reminders/" + str(id), headers=self.headers)
         
         return response.json()
     
@@ -47,7 +47,7 @@ class RemindersDB:
         return response.json()
     
     def get_reminder(self, id):
-        response = requests.get(self.url+"/reminders/" + id, headers=self.headers)
+        response = requests.get(self.url+"/reminders/" + str(id), headers=self.headers)
         
         return response.json()
 

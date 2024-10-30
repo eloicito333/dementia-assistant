@@ -1,6 +1,7 @@
 from .vector_data_retrieval import VectorDataRetrieval
 from .get_current_datetime import GetCurerntDatetime
 from .function_parent_class import OpenAIFunction
+from .get_tdr_conclusions import GetTDRConclusions
 
 from .reminders.create import CreateReminder
 from .reminders.update import UpdateReminder
@@ -17,7 +18,7 @@ from threading import Thread
 
 class FunctionHandler:
     def __init__(self):
-        self.handler_array= [VectorDataRetrieval(), GetCurerntDatetime(), CreateReminder(), UpdateReminder(), DeleteReminder(), GetReminderById(), GetAllReminders(),]
+        self.handler_array= [VectorDataRetrieval(), GetCurerntDatetime(), CreateReminder(), UpdateReminder(), DeleteReminder(), GetReminderById(), GetAllReminders(), GetTDRConclusions()]
 
         self.handlers = dict(zip([handler.getName() for handler in self.handler_array], self.handler_array))
 
