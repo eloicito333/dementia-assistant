@@ -156,6 +156,33 @@ Pot ser que l'usuari es refereixi a misssatges que ha dit just abans d'iniciar a
         self.last_interaction = datetime.datetime.now()
 
 
+    def need_to_add_reminder(self, text, temperature=.6):
+        try:
+            response = self.client.chat.completions.create(
+                model="gpt-4o-mini",
+                temperature=temperature,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "La teva funció és determinar si s'ha d'afegir un recordatori o no. L'usuari enviarà un missatge que forma part d'una conversa seva. Si en el missatge es menciona un esdeveniment futur que hauria de fer, respon que 'yes' que s'ha d'afegir un recordatori. Sinó, que 'no'."
+                    },
+                    {
+                        "role": "user",
+                        "content": text
+                    }
+                ],
+            )
+        
+            res_message = response.choices[0].message
+
+            if ("yes" in res_message): return True
+            else: return False
+    
+        except:
+            return False
+
+
+
     def handle(self, metadated_text, confidential, speaker):
         text = metadated_text["text"]
 
@@ -170,3 +197,6 @@ Pot ser que l'usuari es refereixi a misssatges que ha dit just abans d'iniciar a
 
         else:
             self.save_to_db(text=text, speaker=speaker, inConversation=False, confidential=confidential)
+            if (self.need_to_add_reminder(text)):
+                self.context_window.clear()
+                self._conversate(metadated_text, speaker=speaker, confidential=confidential)

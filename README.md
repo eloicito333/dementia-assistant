@@ -1,49 +1,36 @@
 <p align="center">
-  <img src="dementia-assistant.png" width="60%" alt="DEMENTIA-ASSISTANT-logo">
+    <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" align="center" width="30%">
+</p>
+<p align="center"><h1 align="center">DEMENTIA-ASSISTANT</h1></p>
+<p align="center">
+	<em>Empowering Memories, Enhancing Lives with Technology.</em>
 </p>
 <p align="center">
-    <h1 align="center">DEMENTIA-ASSISTANT</h1>
+	<img src="https://img.shields.io/github/license/eloicito333/dementia-assistant?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+	<img src="https://img.shields.io/github/last-commit/eloicito333/dementia-assistant?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+	<img src="https://img.shields.io/github/languages/top/eloicito333/dementia-assistant?style=default&color=0080ff" alt="repo-top-language">
+	<img src="https://img.shields.io/github/languages/count/eloicito333/dementia-assistant?style=default&color=0080ff" alt="repo-language-count">
+</p>
+<p align="center"><!-- default option, no dependency badges. -->
 </p>
 <p align="center">
-    <em>Empowering Minds, Easing Memories-Your Real-time Ally in Early Dementia Care</em>
+	<!-- default option, no dependency badges. -->
 </p>
-<p align="center">
-	<img src="https://img.shields.io/badge/License-Modifiev d%20Creative%20Commons?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
-	<img src="https://img.shields.io/github/last-commit/eloicito333/dementia-assistant?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
-	<img src="https://img.shields.io/github/languages/top/eloicito333/dementia-assistant?style=flat&color=0080ff" alt="repo-top-language">
-	<img src="https://img.shields.io/github/languages/count/eloicito333/dementia-assistant?style=flat&color=0080ff" alt="repo-language-count">
-</p>
-<p align="center">
-		<em>Built with the tools and technologies:</em>
-</p>
-<p align="center">
-	<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat&logo=JavaScript&logoColor=black" alt="JavaScript">
-	<img src="https://img.shields.io/badge/Pydantic-E92063.svg?style=flat&logo=Pydantic&logoColor=white" alt="Pydantic">
-	<img src="https://img.shields.io/badge/Nodemon-76D04B.svg?style=flat&logo=Nodemon&logoColor=white" alt="Nodemon">
-	<img src="https://img.shields.io/badge/MongoDB-47A248.svg?style=flat&logo=MongoDB&logoColor=white" alt="MongoDB">
-	<br>
-	<img src="https://img.shields.io/badge/OpenAI-412991.svg?style=flat&logo=OpenAI&logoColor=white" alt="OpenAI">
-	<img src="https://img.shields.io/badge/Python-3776AB.svg?style=flat&logo=Python&logoColor=white" alt="Python">
-	<img src="https://img.shields.io/badge/NumPy-013243.svg?style=flat&logo=NumPy&logoColor=white" alt="NumPy">
-	<img src="https://img.shields.io/badge/JSON-000000.svg?style=flat&logo=JSON&logoColor=white" alt="JSON">
-	<img src="https://img.shields.io/badge/Express-000000.svg?style=flat&logo=Express&logoColor=white" alt="Express">
-</p>
-
 <br>
 
-##### 🔗 Table of Contents
+## 🔗 Table of Contents
 
 - [📍 Overview](#-overview)
 - [👾 Features](#-features)
-- [📂 Repository Structure](#-repository-structure)
-- [🧩 Modules](#-modules)
+- [📁 Project Structure](#-project-structure)
+  - [📂 Project Index](#-project-index)
 - [🚀 Getting Started](#-getting-started)
-    - [🔖 Prerequisites](#-prerequisites)
-    - [📦 Installation](#-installation)
-    - [🤖 Usage](#-usage)
-    - [🧪 Tests](#-tests)
+  - [☑️ Prerequisites](#-prerequisites)
+  - [⚙️ Installation](#-installation)
+  - [🤖 Usage](#🤖-usage)
+  - [🧪 Testing](#🧪-testing)
 - [📌 Project Roadmap](#-project-roadmap)
-- [🤝 Contributing](#-contributing)
+- [🔰 Contributing](#-contributing)
 - [🎗 License](#-license)
 - [🙌 Acknowledgments](#-acknowledgments)
 
@@ -51,28 +38,25 @@
 
 ## 📍 Overview
 
-The open-source project, dementia-assistant, is ingeniously developed to lend an assistive hand to those suffering from dementia by leveraging real-time handling and transcription of audio data. The software project is primarily kicked off by main.py, which is the linchpin, orchestrating various client-side functionalities such as initializing voice assistant, audio player, and transcription handler, and triggering audio recording and transcribing processes, among other tasks. The heart of real-time operations lies in stream_handler.py, adept at managing and processing audio data with the use of several critical libraries. Further, it prepares the audio data for transcribing by interacting with transcriber.py. Furthermore, openai_client.py augments the functionality by providing an interface to OpenAI GPT-3, thereby enabling user interaction with the model for question-answering and conversation. The unique value proposition of the software project lies in its real-time assistance, providing significant help to dementia patients, thereby enhancing their quality of life.
+The Dementia Assistant project leverages advanced technology to support individuals with dementia by managing reminders and processing spoken data efficiently. This innovative tool ensures seamless interaction through voice commands and real-time transcription, enhancing daily life management for those affected. It's designed for caregivers, healthcare providers, and families, offering a reliable and user-friendly solution to improve communication and care in dementia management scenarios.
 
 ---
 
 ## 👾 Features
 
-|    |   Feature         | Description |
-|----|-------------------|---------------------------------------------------------------|
-| ⚙️  | **Architecture**  | The project follows a client-server architecture with separate components for stream handling, request handling, and transcription. |
-| 🔩 | **Code Quality**  | The codebase is well-structured and clear. It includes good use of comments and proper naming conventions. |
-| 📄 | **Documentation** | There is minimal documentation. More could be added for clarity on project setup and function usage. |
-| 🔌 | **Integrations**  | This project integrates heavily with OpenAI for chatbots and sounddevice/soundfile for audio handling. |
-| 🧩 | **Modularity**    | The project is modular with separate scripts for different functionalities. Relatively easy to extend and modify. |
-| 🧪 | **Testing**       | There doesn't seem to be a dedicated testing suite. Unit and integration tests would be beneficial. |
-| ⚡️  | **Performance**   | Uses streaming & concurrent operations to handle real-time audio, indicating good performance. |
-| 🛡️ | **Security**      | Security measures are not clear from code inspection. More information is required. |
-| 📦 | **Dependencies**  | Major dependencies include OpenAI, sounddevice, soundfile, numpy, requests and pydantic. |
-| 🚀 | **Scalability**   | The project seems capable of handling increased load by virtue of its streaming architecture. |
+|      | Feature         | Summary       |
+| :--- | :---:           | :---          |
+| ⚙️  | **Architecture**  | <ul><li>Utilizes both Python and JavaScript, indicating a likely split between backend (Python) and frontend or utility scripts (JavaScript).</li><li>Structured with separate directories for different servers (HTTP and WebSocket), suggesting a microservices architecture.</li><li>Integration with MongoDB and use of environment variables for configuration, enhancing flexibility and scalability.</li></ul> |
+| 🔩 | **Code Quality**  | <ul><li>Presence of `package-lock.json` ensures consistent dependency versions, enhancing reliability.</li><li>Use of configuration files (`config.js`) for setting up environment variables, promoting good practices in configuration management.</li><li>Codebase includes multiple languages and dependency managers, which may pose challenges in maintaining consistency across components.</li></ul> |
+| 📄 | **Documentation** | <ul><li>Documentation includes install and usage commands, facilitating easier setup and usage.</li><li>Use of badges in documentation for visual enhancement and quick reference.</li><li>Documentation seems to be split across different technologies (npm for JavaScript, pip for Python), which could require users to be familiar with both ecosystems.</li></ul> |
+| 🔌 | **Integrations**  | <ul><li>Integrates with MongoDB for database operations, suitable for handling complex data structures needed in a dementia assistant application.</li><li>Uses npm and pip, indicating integration with Node.js and Python libraries respectively.</li><li>No explicit mention of external APIs or services beyond MongoDB, which might limit external data interaction capabilities.</li></ul> |
+| 🧩 | **Modularity**    | <ul><li>Project structure suggests modularity with separate directories and requirements for different components (HTTP server, WebSocket server).</li><li>Modular use of npm and pip could allow for independent updates and maintenance of parts of the project.</li><li>Modularity may aid in isolating issues and scaling specific components of the application as needed.</li></ul> |
+| 🧪 | **Testing**       | <ul><li>Includes a command for running tests using pytest, indicating some level of automated testing.</li><li>Lack of detailed testing documentation or test files in the provided details suggests potential areas for improvement in test coverage and documentation.</li><li>Testing appears to be more focused on the Python components.</li></ul> |
+| ⚡️  | **Performance**   | <ul><li>Use of MongoDB and efficient handling of HTTP requests likely contribute to good performance in data-intensive operations.</li><li>No explicit mention of performance optimization techniques or metrics.</li><li>Performance may be impacted by the dual-language architecture if not properly managed.</li></ul> |
 
 ---
 
-## 📂 Repository Structure
+## 📁 Project Structure
 
 ```sh
 └── dementia-assistant/
@@ -81,133 +65,328 @@ The open-source project, dementia-assistant, is ingeniously developed to lend an
     ├── client
     │   ├── .env.demo
     │   ├── .gitignore
-    │   ├── .vscode
-    │   ├── api_helper.py
+    │   ├── client.py
     │   ├── essential_data.py
-    │   ├── function_calling
-    │   ├── handler.py
     │   ├── main.py
-    │   ├── main_assistant.py
-    │   ├── openai_client.py
     │   ├── player.py
     │   ├── program_settings.py
     │   ├── requirements.txt
     │   ├── stream_constants.py
     │   ├── stream_handler.py
-    │   ├── transcriber.py
-    │   └── utils.py
-    └── server
-        ├── .env.demo
-        ├── .gitignore
-        ├── config.js
-        ├── expressServer.js
-        ├── index.js
-        ├── lib
-        ├── middleware
-        ├── models
-        ├── package-lock.json
-        ├── package.json
-        └── routes
+    │   └── utils
+    └── servers
+        ├── http
+        └── websocket
 ```
 
+
+### 📂 Project Index
+<details open>
+	<summary><b><code>DEMENTIA-ASSISTANT/</code></b></summary>
+	<details> <!-- __root__ Submodule -->
+		<summary><b>__root__</b></summary>
+		<blockquote>
+			<table>
+			</table>
+		</blockquote>
+	</details>
+	<details> <!-- servers Submodule -->
+		<summary><b>servers</b></summary>
+		<blockquote>
+			<details>
+				<summary><b>http</b></summary>
+				<blockquote>
+					<table>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/package-lock.json'>package-lock.json</a></b></td>
+						<td>- The file `package-lock.json` located in the `servers/http` directory is a crucial component of the `dementia_assistant_http_server` module within the broader project architecture<br>- This file specifically locks down the versions of dependencies used by the HTTP server, ensuring consistent installations across different environments<br>- The server itself is likely responsible for handling HTTP requests, interfacing with a MongoDB database, and managing environmental variables, which is indicated by the dependencies listed (Express for server operations, MongoDB for database interactions, and dotenv for environment configuration)<br>- This setup is essential for the reliable operation of the server component in the dementia assistant application, contributing to the stability and predictability of the server's behavior in production environments.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/config.js'>config.js</a></b></td>
+						<td>- Configures environment variables and exports essential settings for the HTTP server, including port configuration, authentication parameters, and database connectivity details<br>- It ensures the server operates with the necessary credentials and connections, facilitating secure and efficient interactions with external services and databases within the broader application architecture.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/.env.demo'>.env.demo</a></b></td>
+						<td>- Establishes environment variables crucial for configuring the HTTP server within the broader application architecture<br>- It specifies settings for API access, database connectivity, authentication, and server port configuration, ensuring secure and efficient operation of server-side functionalities<br>- Essential for initializing and maintaining the application's runtime environment.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/index.js'>index.js</a></b></td>
+						<td>- Initializes the Dementia Assistant server by creating and configuring an HTTP server using the Express framework<br>- It sets up the server to listen on a port defined in the configuration file, providing feedback upon successful launch<br>- This component is crucial for handling incoming web requests and serving the application's functionalities.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/expressServer.js'>expressServer.js</a></b></td>
+						<td>- ExpressServer.js establishes the HTTP server framework using Express, integrating middleware for logging and authentication<br>- It configures API routes for spoken data and reminders, organizing them under a base-level router<br>- This setup ensures efficient request handling and response delivery, contributing to the modular architecture of the web application.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/package.json'>package.json</a></b></td>
+						<td>- Serves as the configuration backbone for the dementia_assistant_http_server, specifying operational parameters for the HTTP server component of the project<br>- It defines dependencies essential for server operation, such as Express for routing and MongoDB for database interactions, and sets up scripts for development and production environments.</td>
+					</tr>
+					</table>
+					<details>
+						<summary><b>lib</b></summary>
+						<blockquote>
+							<table>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/lib/mongodb.js'>mongodb.js</a></b></td>
+								<td>- Establishes a connection to MongoDB using parameters defined in the project's configuration<br>- It initializes a MongoDB client and connects to the specified database, making the database object available for other parts of the application to perform data operations<br>- This setup is crucial for managing data interactions within the server's architecture.</td>
+							</tr>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/lib/openai.js'>openai.js</a></b></td>
+								<td>- OpenAIHelper, defined within the servers/http/lib/openai.js, facilitates interaction with the OpenAI API by generating text embeddings<br>- It initializes with an API key and provides a method to create embeddings from text, which are essential for processing and analyzing textual data efficiently within the broader application architecture.</td>
+							</tr>
+							</table>
+						</blockquote>
+					</details>
+					<details>
+						<summary><b>routes</b></summary>
+						<blockquote>
+							<table>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/routes/spokenData.js'>spokenData.js</a></b></td>
+								<td>- SpokenDataRoutes in the HTTP server module manages spoken data interactions, enabling document storage and retrieval within a MongoDB database<br>- It supports inserting spoken data with optional confidential information and searching through documents based on text, date, or speaker criteria using OpenAI embeddings for enhanced query capabilities.</td>
+							</tr>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/routes/reminders.js'>reminders.js</a></b></td>
+								<td>- Manages CRUD operations for reminders within a MongoDB collection via an Express router<br>- It supports adding, retrieving, updating, and deleting reminder items, ensuring data validation and error handling to maintain data integrity and provide feedback on operation outcomes.</td>
+							</tr>
+							</table>
+						</blockquote>
+					</details>
+					<details>
+						<summary><b>middleware</b></summary>
+						<blockquote>
+							<table>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/http/middleware/auth.js'>auth.js</a></b></td>
+								<td>- AuthMiddleware, located within the HTTP server's middleware directory, serves as a security gatekeeper by verifying incoming requests against a predefined authentication string<br>- It ensures that only requests with valid authorization proceed, otherwise, it denies access by responding with a 401 status code, indicating failed authentication<br>- This component is crucial for enforcing access control across the server's endpoints.</td>
+							</tr>
+							</table>
+						</blockquote>
+					</details>
+				</blockquote>
+			</details>
+			<details>
+				<summary><b>websocket</b></summary>
+				<blockquote>
+					<table>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/reminders_manager.py'>reminders_manager.py</a></b></td>
+						<td>- Manages reminders within a websocket server, scheduling and updating notification times based on user-defined frequencies and conditions<br>- Utilizes a threading model to handle reminder operations asynchronously, interfacing with a database through an API helper to retrieve and update reminder data.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/program_settings.py'>program_settings.py</a></b></td>
+						<td>- Manages configuration settings specific to the WebSocket server within the broader application architecture<br>- The settings ensure detailed logging through verbosity and prevent deletion operations, enhancing stability and traceability during WebSocket communications<br>- These configurations play a crucial role in maintaining consistent server behavior and facilitating debugging processes.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/api_helper.py'>api_helper.py</a></b></td>
+						<td>- APIHelper in `servers/websocket/api_helper.py` serves as an interface for interacting with internal APIs, managing spoken data and reminders<br>- It initializes connections, handles CRUD operations for documents and reminders, and ensures secure communication through API keys and headers, streamlining data management within the application's architecture.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/handler.py'>handler.py</a></b></td>
+						<td>- Handler.py manages the processing of potentially confidential information within user messages by identifying and anonymizing sensitive data<br>- It utilizes an AI model to detect confidential content, replaces it with placeholders, and forwards the sanitized data along with metadata for further handling by the system.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/stream_constants.py'>stream_constants.py</a></b></td>
+						<td>- Defines constants critical for managing audio data in the WebSocket server, including frequency ranges for vocal detection, sample rates for stream compatibility with the OpenAI TTS API, and block sizes for audio processing<br>- These constants ensure efficient audio data buffering, transmission, and context preservation during live audio streaming sessions.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/.env.demo'>.env.demo</a></b></td>
+						<td>- Provides a template for setting environment variables crucial for the WebSocket server's operation within the project<br>- It includes placeholders for API keys, internal URLs, authentication tokens, and the server port, ensuring secure and configurable communication channels and service integration essential for the system's functionality and security.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/main.py'>main.py</a></b></td>
+						<td>- Initiates a WebSocket server for a voice assistant, setting up components for user interaction through voice commands<br>- It configures transcription settings, initializes audio playback, and manages voice data processing<br>- The server also handles user preferences for verbosity and data retention, enhancing user experience with personalized greetings and operational modes.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/openai_client.py'>openai_client.py</a></b></td>
+						<td>- Establishes the connection between the server's websocket component and OpenAI's API by initializing the OpenAI client using environment-specific configurations<br>- This setup enables the application to interact dynamically with OpenAI services, facilitating real-time data processing and response generation within the broader system architecture.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/server.py'>server.py</a></b></td>
+						<td>- SocketServer in `servers/websocket/server.py` establishes a WebSocket server using Flask and Socket.IO to manage real-time, bi-directional communication with clients<br>- It handles client connections, authentication via tokens, and data transmission, ensuring that only authorized clients can connect and interact with the server<br>- Additionally, it supports threading for concurrent operations.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/requirements.txt'>requirements.txt</a></b></td>
+						<td>- Specifies the dependencies required for the WebSocket server component of the project, ensuring compatibility and functionality across various libraries and frameworks<br>- It includes essential packages for web communication, data handling, and interface management, pivotal for the server's operation within the broader application architecture.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/stream_handler.py'>stream_handler.py</a></b></td>
+						<td>- StreamHandler manages real-time audio data processing for transcription in a WebSocket server environment<br>- It captures audio, determines speech presence, buffers it, and processes it through a transcription service<br>- The system handles dynamic buffer management and integrates user-specific prompts to enhance transcription context, ensuring efficient and continuous audio data handling and transcription output.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/transcriber.py'>transcriber.py</a></b></td>
+						<td>- Transcriber in the websocket server module automates voice transcription corrections for user messages, ensuring specific words and phrases are accurately represented and formatted according to predefined rules<br>- It leverages the OPENAI_CLIENT for generating corrected text outputs, enhancing clarity and adherence to stylistic guidelines.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/essential_data.py'>essential_data.py</a></b></td>
+						<td>- Defines essential data for the WebSocket server within the project, setting default user and assistant identities, including names and voice settings<br>- It also initializes a list for important words, likely used for processing or filtering content during WebSocket communications, enhancing interaction personalization and functionality across the system.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/main_assistant.py'>main_assistant.py</a></b></td>
+						<td>- Manages real-time interactions in a voice assistant designed to aid individuals with dementia, maintaining conversational context and handling user inputs<br>- It dynamically adjusts dialogue based on system prompts, user messages, and function calls, ensuring responses are tailored and relevant within the ongoing conversation.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/auth.py'>auth.py</a></b></td>
+						<td>- Authenticates WebSocket connections by verifying tokens against an environment-specified authorization token<br>- Located within the `servers/websocket` directory, `auth.py` ensures that only clients with the correct token can establish or maintain a connection, playing a critical role in securing the WebSocket server's communication channels.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/player.py'>player.py</a></b></td>
+						<td>- Manages audio playback and text-to-speech operations within a WebSocket server environment<br>- It handles audio streaming, temporary file management, and provides real-time audio control through threading<br>- The module integrates with an external AI client to generate speech from text, supporting dynamic interaction in applications requiring audio output.</td>
+					</tr>
+					</table>
+					<details>
+						<summary><b>utils</b></summary>
+						<blockquote>
+							<table>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/utils/objects.py'>objects.py</a></b></td>
+								<td>- The `objects.py` module in the `servers/websocket/utils` directory provides functionality to safely retrieve elements from various data structures<br>- It supports accessing elements from dictionaries and other iterable types, handling non-existent keys and indices gracefully by returning a default value or the object itself under specific conditions.</td>
+							</tr>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/utils/io.py'>io.py</a></b></td>
+								<td>- Encodes and decodes data for efficient transmission over websockets within the project's architecture<br>- Utilizing msgpack serialization, the utility handles conversion of NumPy arrays to byte streams and vice versa, ensuring other data types are transmitted without alteration<br>- This process supports the seamless exchange of complex data structures necessary for real-time, data-intensive applications.</td>
+							</tr>
+							</table>
+						</blockquote>
+					</details>
+					<details>
+						<summary><b>function_calling</b></summary>
+						<blockquote>
+							<table>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/get_tdr_conclusions.py'>get_tdr_conclusions.py</a></b></td>
+								<td>- GetTDRConclusions, part of the websocket functionality in the codebase, provides conclusions for a given set of hypotheses about voice assistant capabilities and their applications, particularly in Catalan and for elderly autonomy<br>- It utilizes predefined responses to reflect on the verification of these hypotheses, enhancing user understanding of the technology's impact and feasibility.</td>
+							</tr>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/function_parent_class.py'>function_parent_class.py</a></b></td>
+								<td>- Defines the `OpenAIFunction` class within the WebSocket server's architecture, serving as a parent class for function calling<br>- It outlines a structure for subclasses to implement specific functionalities, including a method to apply arguments and a static method to retrieve the function's name, enhancing modularity and reusability across the system.</td>
+							</tr>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/vector_data_retrieval.py'>vector_data_retrieval.py</a></b></td>
+								<td>- VectorDataRetrieval, a component within the websocket server, facilitates historical context retrieval from conversational data<br>- It leverages an API to search through documented conversations based on text, date, and speaker parameters, returning relevant past dialogues<br>- This function supports contextual understanding across the application by accessing a vector database.</td>
+							</tr>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/function_handler.py'>function_handler.py</a></b></td>
+								<td>- FunctionHandler orchestrates the execution of various server-side functions related to data retrieval, datetime operations, and reminder management within a WebSocket environment<br>- It maps function calls to specific handlers, executes them concurrently, and formats the results for WebSocket communication, enhancing the system's responsiveness and interactivity.</td>
+							</tr>
+							<tr>
+								<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/get_current_datetime.py'>get_current_datetime.py</a></b></td>
+								<td>- GetCurerntDatetime, part of the websocket server's function calling module, provides real-time date and time information<br>- It extends the OpenAIFunction class, offering a method to fetch the current weekday in Catalan and the complete date and time, enhancing user interaction by responding with natural language placeholders during processing.</td>
+							</tr>
+							</table>
+							<details>
+								<summary><b>reminders</b></summary>
+								<blockquote>
+									<table>
+									<tr>
+										<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/reminders/get_all.py'>get_all.py</a></b></td>
+										<td>- GetAllReminders, a class within the websocket server's reminder management module, facilitates the retrieval of all existing reminders from the database<br>- It extends the OpenAIFunction parent class, incorporating predefined user interaction phrases and leveraging an API helper to access reminder data, thereby supporting comprehensive reminder management in the application.</td>
+									</tr>
+									<tr>
+										<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/reminders/get_by_id.py'>get_by_id.py</a></b></td>
+										<td>- GetReminderById, a component within the websocket server's reminder management system, retrieves existing reminders by their unique ID<br>- It utilizes the api_helper to interact with the reminders database, ensuring efficient data retrieval<br>- This functionality is crucial for enabling users to access specific reminder details within the broader application architecture.</td>
+									</tr>
+									<tr>
+										<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/reminders/create.py'>create.py</a></b></td>
+										<td>- CreateReminder, a component within the websocket functionality of the project, manages the creation of reminders<br>- It interfaces with an API to store reminder details such as frequency, title, and timing in a database<br>- This module ensures users are notified appropriately before a reminder is set, enhancing user interaction and reliability of the reminder system.</td>
+									</tr>
+									<tr>
+										<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/reminders/update.py'>update.py</a></b></td>
+										<td>- UpdateReminder, a class within the websocket server's reminder management module, facilitates the modification of existing reminders<br>- It allows users to specify which attributes of a reminder to update, such as frequency, title, and timing details, ensuring flexibility in managing scheduled notifications<br>- This functionality is crucial for maintaining the accuracy and relevance of reminder data in dynamic environments.</td>
+									</tr>
+									<tr>
+										<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/servers/websocket/function_calling/reminders/delete.py'>delete.py</a></b></td>
+										<td>- DeleteReminder, a class within the websocket server's reminder management module, facilitates the removal of existing reminders by interacting with the database through the api_helper<br>- It leverages a structured description to validate and process the deletion request based on the reminder's ID, ensuring efficient and accurate operations within the system's architecture.</td>
+									</tr>
+									</table>
+								</blockquote>
+							</details>
+						</blockquote>
+					</details>
+				</blockquote>
+			</details>
+		</blockquote>
+	</details>
+	<details> <!-- client Submodule -->
+		<summary><b>client</b></summary>
+		<blockquote>
+			<table>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/program_settings.py'>program_settings.py</a></b></td>
+				<td>- Manages user preferences within the client module by setting program behavior flags, specifically controlling output verbosity and deletion operations<br>- By enabling verbose output and disabling the delete function, it ensures comprehensive feedback and data preservation during program execution, aligning with the broader codebase's focus on robustness and user control.</td>
+			</tr>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/client.py'>client.py</a></b></td>
+				<td>- Client.py establishes a WebSocket client that connects to a server, handling audio data transmission<br>- It encodes audio arrays and voice presence flags, sends them to the server, and processes the received responses<br>- The client utilizes environment variables for configuration and leverages threading to manage WebSocket communication efficiently.</td>
+			</tr>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/stream_constants.py'>stream_constants.py</a></b></td>
+				<td>- Defines constants crucial for managing audio stream parameters within the client module, including frequency ranges for vocal detection, sample rate compatibility with external APIs, and block sizes for processing audio data<br>- These settings ensure efficient audio data handling and synchronization across the system's audio processing and transmission functionalities.</td>
+			</tr>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/.env.demo'>.env.demo</a></b></td>
+				<td>- Serves as a template for environment variables in the client application, specifying the WebSocket URL and authentication token necessary for connecting to the server<br>- Essential for developers to configure their local development environments correctly, ensuring seamless communication and authentication with the backend services.</td>
+			</tr>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/main.py'>main.py</a></b></td>
+				<td>- Client/main.py serves as the entry point for a voice assistant application, initializing the audio player and stream handler to manage audio input and output<br>- It configures user interaction settings like verbose and no-delete modes, and displays a welcome message, enhancing user experience by providing feedback on current operational modes.</td>
+			</tr>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/requirements.txt'>requirements.txt</a></b></td>
+				<td>- Defines the specific Python package dependencies required for the client component of the project, ensuring compatibility and functionality across various modules<br>- It includes libraries for data manipulation, network communication, and environmental settings, crucial for the client's operational integrity and interaction with other services.</td>
+			</tr>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/stream_handler.py'>stream_handler.py</a></b></td>
+				<td>- StreamHandler manages audio streams for real-time voice processing, handling tasks such as voice detection, audio buffering, and transcription initiation<br>- It integrates with the system's audio devices, supports echo cancellation in contaminated streams, and processes audio data to facilitate continuous speech recognition and response within an interactive AI assistant environment.</td>
+			</tr>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/essential_data.py'>essential_data.py</a></b></td>
+				<td>- Defines essential user and assistant attributes for the client module within the broader application architecture<br>- It sets basic identity parameters such as names and voice preferences, crucial for personalizing interactions<br>- The module also includes a placeholder for important words, suggesting a foundation for future feature expansions involving tailored communication or keyword-based functionalities.</td>
+			</tr>
+			<tr>
+				<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/player.py'>player.py</a></b></td>
+				<td>- AudioPlayer, defined in client/player.py, manages audio output for the system<br>- It initializes an output buffer and queue, receives audio blocks via a socket connection, and supports stopping the audio stream on command<br>- The class leverages threading to handle stop operations without blocking the main execution flow.</td>
+			</tr>
+			</table>
+			<details>
+				<summary><b>utils</b></summary>
+				<blockquote>
+					<table>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/utils/objects.py'>objects.py</a></b></td>
+						<td>- `client/utils/objects.py` provides a utility function for safely accessing elements within various data structures<br>- It supports dictionaries, iterables, and handles non-subscriptable objects by returning defaults or the object itself based on the provided key<br>- This enhances data handling robustness across the client-side architecture of the application.</td>
+					</tr>
+					<tr>
+						<td><b><a href='https://github.com/eloicito333/dementia-assistant/blob/master/client/utils/io.py'>io.py</a></b></td>
+						<td>- Handles the serialization and deserialization of data for network transmission within the client module, specifically adapting NumPy arrays for efficient byte stream conversion using msgpack<br>- It ensures that complex data structures are appropriately encoded and decoded, maintaining integrity and type consistency across network interactions.</td>
+					</tr>
+					</table>
+				</blockquote>
+			</details>
+		</blockquote>
+	</details>
+</details>
+
 ---
-
-## 🧩 Modules
-
-<details closed><summary>client</summary>
-
-| File | Summary |
-| --- | --- |
-| [main.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/main.py) | Main.py orchestrates the dementia-assistants client-side functionalities. It initializes and integrates the voice assistant, audio player, and transcription handler, and triggers the process of audio recording and transcribing. It also facilitates a verbose' mode for detailed logging. It is essentially the startup script for the assistant's operation. |
-| [stream_handler.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/stream_handler.py) | This `stream_handler.py` file, found within the client' section of the dementia-assistant project, plays a significant role in managing and processing audio data. Specifically, it handles audio streaming which is essential for the real-time functionality required for the dementia-assistant's primary purpose of assisting those with dementia.The code leverages a few key libraries including `sounddevice` and `soundfile` for audio input and output operations, `numpy` for numerical computations, and `threading` for concurrent operations.It also interacts with the `transcriber.py` script to transcribe audio data, relying on the `transcriber_utils` library. Additionally, the file imports configurations from `program_settings` and `essential_data` to use in the audio stream handling process, specifically-`verbose`, `USER_GENDER`, and `USER_NAME`.In summary, `stream_handler.py` is critical to the projects aim of providing real-time dementia assistance, by managing audio data and preparing it for further processing and transcription. |
-| [openai_client.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/openai_client.py) | OpenAI_client.py initializes and provides an instance of the OpenAI client in the dementia-assistant project. This component enables interaction with the OpenAI service, a fundamental aspect of the application's functionality to assist dementia patients. |
-| [main_assistant.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/main_assistant.py) | Importing and using the OpenAI client for utilizing AI services.-Recording, transcribing, and managing speech-to-text tasks with the help of the `transcriber` module.-Utilizing essential user information like user gender and name for personalized interactions.-Leveraging the FunctionHandler from the `function_calling` directory to manage and handle function calls within the program.-Making use of the `api_helper` module to interact with server-side services.-Using multi-threading to handle multiple activities concurrently.The code in this file integrates these modules and functionalities to provide the main assistance features, such as personalized interactions, task handling, and providing support based on user needs. The `main_assistant.py` is a key part of the client-side application and plays a critical role in the overall architecture of the dementia-assistant system. |
-| [essential_data.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/essential_data.py) | EssentialData.py in the client directory of the Dementia Assistant application assigns personal identifiers and crucial parameters, such as user and assistant names, gender, voice type, and important words, that guide the user-assistant interaction and conversation flow in the system. |
-| [transcriber.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/transcriber.py) | The `transcriber.py` file is part of the `client` directory in the `dementia-assistant` repository. The role of this file is fundamental to the functioning of the Dementia Assistants conversational interface. This module is responsible for transcribing user and assistant interactions. With integration from `openai_client.py` and `essential_data.py`, it utilizes key data, including the assistant and user names, and important words, to structure a context-aware transcript.In addition, this module interacts with `program_settings.py` to take into account verbose settings that might regulate the level of detail in the transcriptions. The transcriptions created by this module offer critical insights into the dialogue flow and can be used for troubleshooting, user experience enhancements, and further development. |
-| [program_settings.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/program_settings.py) | Program_settings.py enables the dementia assistant applications user settings configuration, facilitating the toggle of verbose mode on or off. It plays a central role in customizing user interactions within the broader application architecture. |
-| [.env.demo](https://github.com/eloicito333/dementia-assistant/blob/main/client/.env.demo) | Hosts placeholder spaces for essential API keys. It initializes the environment variables for the OpenAI API key, the Internal API URL and the Internal API key, essential for the functioning of the dementia assistants client. |
-| [api_helper.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/api_helper.py) | APIHelper in the api_helper.py module establishes a connection with the API and manages the interaction between the dementia-assistant client and the server. It posts and retrieves documents from SpokenDataDB, facilitating the conversion of spoken data into a transcribable format. |
-| [stream_constants.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/stream_constants.py) | Stream_constants.py manages settings crucial to the audio recording and processing in the dementia-assistant client, encompassing specifications for speech detection, streaming frequency, block size, and parameters for audio transmission and buffering. |
-| [utils.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/utils.py) | Utils.py in the client directory provides universal utility functions, specifically a flexible get_subscriptable function. This function fetches values from iterable data structures including dictionaries and handles exceptions, thereby reinforcing robustness and error management in the overall architecture of the dementia-assistant project. |
-| [player.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/player.py) | This code file, `player.py`, belongs to the `client` directory of the `dementia-assistant` repository. In the overall architecture of the project, it plays a vital role in the audio processing functionality, especially focusing on audio playing operations. The primary purpose of this file is to create, manage, and control an audio player instance, utilizing a library for audio file processing and managing audio streams. Leveraging the open-source `openai_client`, this file establishes a client-server model to communicate with the OpenAI services. The `AudioPlayer` class shows the encapsulation of the coding logic related to the audio player, signifying the object-oriented programming approach used in the repository's framework. The settings and constants used in the player are imported from other modules in the repository, such as `program_settings` and `stream_constants`, indicating high modularity and the careful division of responsibilities within the codebase. As a part of its functionality, the `player.py` also incorporates threading for concurrent execution, which is crucial to achieving real-time interaction in the dementia-assistant application, improving its performance and user experience. |
-| [requirements.txt](https://github.com/eloicito333/dementia-assistant/blob/main/client/requirements.txt) | Requirements.txt manages the necessary dependencies for the client-side of the dementia assistant application, specifying version-fixed packages to ensure consistent environment setup minimizing potential conflicts or issues. It underpins the functionality of other Python scripts in the client folder, such as transcription, streaming, and AI tasks. |
-| [handler.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/handler.py) | Corrected_text` and an optional `confidential` dictionary. The `corrected_text` stores the refined and processed text, while the `confidential` dictionary can contain sensitive details that shouldnt be explicitly revealed. In the bigger picture of the repositorys architecture, this feature of structuring the program's output data aids in ensuring consistency and predictability of data returned by the program. It plays a fundamental role in data handling and management within the client part of the dementia-assistant project. |
-
-</details>
-
-<details closed><summary>client.function_calling</summary>
-
-| File | Summary |
-| --- | --- |
-| [function_parent_class.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/function_calling/function_parent_class.py) | OpenAIFunction from function_parent_class.py provides a template for embedding AI functionalities in the dementia assistant project. It standardizes the interface for functions with a description, execution instructions, and a name while maintaining flexibility for varied use-cases. |
-| [vector_data_retrieval.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/function_calling/vector_data_retrieval.py) | VectorDataRetrieval fetches information from historical conversations witnessed by the device, using context-specific parameters such as a text query, date range, or speakers name. It supports the dementia-assistant project by helping to find relevant past interactions, enhancing the systems contextual responsiveness. |
-| [get_current_datetime.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/function_calling/get_current_datetime.py) | Obtaining the current date and time. Within the client-side functionality, it is especially tailored to interact with the OpenAI Function parent class, returning a formatted string containing the current weekday, date, and time upon invocation. |
-| [function_handler.py](https://github.com/eloicito333/dementia-assistant/blob/main/client/function_calling/function_handler.py) | FunctionHandler within function_handler.py serves as a core coordinator, managing the execution of different functions like VectorDataRetrieval and GetCurrentDatetime in the dementia-assistants client-side architecture. It concurrently processes chat messages, applies necessary functions, and returns the results wrapped in response messages. |
-
-</details>
-
-<details closed><summary>server</summary>
-
-| File | Summary |
-| --- | --- |
-| [config.js](https://github.com/eloicito333/dementia-assistant/blob/main/server/config.js) | Serves as a centralized location for managing environment variables in the server-side component of the dementia-assistant project. Facilitates access to key configurations such as port settings, authentication data, API keys, and database connection details. |
-| [expressServer.js](https://github.com/eloicito333/dementia-assistant/blob/main/server/expressServer.js) | ExpressServer.js sets up the express server, establishes the API routing structure, incorporates authentication middleware, and integrates the spoken data routes. It also incorporates logging through the Morgan library. |
-| [package.json](https://github.com/eloicito333/dementia-assistant/blob/main/server/package.json) | The package.json under the server directory primarily outlines the project metadata and dependency management for the Dementia Assistant's server-side operations. Additionally, it specifies various scripts including development, testing, and starting the server, facilitating the routine operations of this Express.js application. |
-| [.env.demo](https://github.com/eloicito333/dementia-assistant/blob/main/server/.env.demo) | Server/.env.demo hosts essential environment variables necessary for the application's server side, facilitating functions such as database connectivity with MongoDB and interfacing with OpenAI via an API key, along with user authorisation. |
-| [index.js](https://github.com/eloicito333/dementia-assistant/blob/main/server/index.js) | Server/index.js orchestrates the initiation of the Dementia Assistant server. It creates an HTTP server using the application defined in expressServer.js and listens on the port specified in config.js. Key feedback on server initialization success and active port is provided through console logging. |
-| [package-lock.json](https://github.com/eloicito333/dementia-assistant/blob/main/server/package-lock.json) | Dementia-assistant/client/api_helper.py================================================================================The `api_helper.py` file, located in the `client` directory of the dementia-assistant repository, serves as a helpful mediator for all API-related calls used by the system. It provides a high-level encapsulation of the API requests made by the client to various services, essentially acting as a bridge for communication between the client-side application and the server.The key functions of this file align well with the overarching goal of the repository, which is to develop an assistant for dementia patients. It contributes to this aim by ensuring smooth and efficient interactions with APIs, crucial for retrieving essential data and supporting functionalities. This could include gathering health-related information, handling feedback, or even managing user accounts.In essence, `api_helper.py` is a critical constituent of the client-side architecture contributing towards the seamless functionality of the dementia assistant. Please note that the specific API calls made by this file would depend on the needs and requirements of the dementia assistant application. |
-
-</details>
-
-<details closed><summary>server.middleware</summary>
-
-| File | Summary |
-| --- | --- |
-| [auth.js](https://github.com/eloicito333/dementia-assistant/blob/main/server/middleware/auth.js) | AuthMiddleware within auth.js facilitates an authentication check for incoming requests on the server side. It intercepts requests, compares the Authorization header value with the pre-set authentication string in the config file, and allows access or denies it, as appropriate, protecting sensitive routes in the dementia-assistant application. |
-
-</details>
-
-<details closed><summary>server.models</summary>
-
-| File | Summary |
-| --- | --- |
-| [SpokenDataDoc.js](https://github.com/eloicito333/dementia-assistant/blob/main/server/models/SpokenDataDoc.js) | SpokenDataDoc.js defines a database model for storing spoken data. It captures essential voice attributes such as the speakers identity, the text spoken, the date of the speech, and the embedding of the speech, essential for the dementia assistants operations. |
-
-</details>
-
-<details closed><summary>server.routes</summary>
-
-| File | Summary |
-| --- | --- |
-| [spokenData.js](https://github.com/eloicito333/dementia-assistant/blob/main/server/routes/spokenData.js) | This codebase is an architecture for a comprehensive Dementia Assistant' system. The system is split into the client and server sections with distinct roles. The server/routes/spokenData.js file, specifically, can be understood as the server-side routing system for managing spoken data. It holds a key role in the system's data transmission and management of voice-based interactions. Leveraging the Express.js Router, it facilitates RESTful API endpoints for client-server communication. It interacts with the OpenAI helper based in the lib directory to process natural language understanding and generation tasks. As well, the script connects to a database helper, also under lib, for persistent data storage and retrieval.Appreciating the wider repository, this file likely processes data from the client-side transcriptions (managed by transcriber.py'), and supports the server-side AI responses, ultimately aiding the provision of the assistant functionality for individuals living with dementia. |
-
-</details>
-
-<details closed><summary>server.lib</summary>
-
-| File | Summary |
-| --- | --- |
-| [mongodb.js](https://github.com/eloicito333/dementia-assistant/blob/main/server/lib/mongodb.js) | Establishes the connection to the MongoDB database using configuration parameters. It exports the database instance, enabling other parts of the application to interact with the database under a specified namespace. |
-| [openai.js](https://github.com/eloicito333/dementia-assistant/blob/main/server/lib/openai.js) | Leverages OpenAI API to create a helper class within the server-side of the dementia assistant application. Its primary responsibility is to generate text embeddings, a crucial function for processing and understanding user input. |
-
-</details>
-
----
-
 ## 🚀 Getting Started
 
-### 🔖 Prerequisites
+### ☑️ Prerequisites
 
-**Node.js**: `version 20.17.0`
-**Python**: `version 3.12`
+Before getting started with dementia-assistant, ensure your runtime environment meets the following requirements:
 
-### 📦 Installation
+- **Programming Language:** Python
+- **Package Manager:** Npm, Pip
 
-Build the project from source:
+
+### ⚙️ Installation
+
+Install dementia-assistant using one of the following methods:
+
+**Build from source:**
 
 1. Clone the dementia-assistant repository:
 ```sh
-❯ git clone https://github.com/eloicito333/dementia-assistant/
+❯ git clone https://github.com/eloicito333/dementia-assistant
 ```
 
 2. Navigate to the project directory:
@@ -215,53 +394,71 @@ Build the project from source:
 ❯ cd dementia-assistant
 ```
 
-3. Install the required dependencies on both client and server:
+3. Install the project dependencies:
+
+
+**Using `npm`** &nbsp; [<img align="center" src="" />]()
 
 ```sh
-#server
-❯ cd server
-❯ npm i
+❯ echo 'INSERT-INSTALL-COMMAND-HERE'
 ```
+
+
+**Using `pip`** &nbsp; [<img align="center" src="https://img.shields.io/badge/Pip-3776AB.svg?style={badge_style}&logo=pypi&logoColor=white" />](https://pypi.org/project/pip/)
+
 ```sh
-#client
-❯ cd client
-❯ pip install -r requirements.txt
+❯ pip install -r servers/websocket/requirements.txt, client/requirements.txt
 ```
+
+
 
 
 ### 🤖 Usage
-Before running this project, you need to **setup** the **environment variables** in `/server/.env` and `/client/.env` following the schemas in the `.env.demo` file of each directory.
-
-To run the project, first boot the server:
-```sh
-#server
-❯ npm start
-```
-Then initiate the client:
+Run dementia-assistant using the following command:
+**Using `npm`** &nbsp; [<img align="center" src="" />]()
 
 ```sh
-#client
-❯ python main.py
+❯ echo 'INSERT-RUN-COMMAND-HERE'
 ```
+
+
+**Using `pip`** &nbsp; [<img align="center" src="https://img.shields.io/badge/Pip-3776AB.svg?style={badge_style}&logo=pypi&logoColor=white" />](https://pypi.org/project/pip/)
+
+```sh
+❯ python {entrypoint}
+```
+
+
+### 🧪 Testing
+Run the test suite using the following command:
+**Using `npm`** &nbsp; [<img align="center" src="" />]()
+
+```sh
+❯ echo 'INSERT-TEST-COMMAND-HERE'
+```
+
+
+**Using `pip`** &nbsp; [<img align="center" src="https://img.shields.io/badge/Pip-3776AB.svg?style={badge_style}&logo=pypi&logoColor=white" />](https://pypi.org/project/pip/)
+
+```sh
+❯ pytest
+```
+
 
 ---
-
 ## 📌 Project Roadmap
 
-- [X] **`Task 1`**: <strike>Create basic voice assistant.</strike>
-- [ ] **`Task 2`**: Create reminders functionality.
-- [ ] **`Task 3`**: Buil the project in a Raspberry Pi Zero 2W.
-- [ ] **`Task 4`**: Implement new fuctions for the LLM.
+- [X] **`Task 1`**: <strike>Implement feature one.</strike>
+- [ ] **`Task 2`**: Implement feature two.
+- [ ] **`Task 3`**: Implement feature three.
 
 ---
 
-## 🤝 Contributing
+## 🔰 Contributing
 
-Contributions are welcome! Here are several ways you can contribute:
-
-- **[Report Issues](https://github.com/eloicito333/dementia-assistant/issues)**: Submit bugs found or log feature requests for the `dementia-assistant` project.
-- **[Submit Pull Requests](https://github.com/eloicito333/dementia-assistant/blob/main/CONTRIBUTING.md)**: Review open PRs, and submit your own PRs.
-- **[Join the Discussions](https://github.com/eloicito333/dementia-assistant/discussions)**: Share your insights, provide feedback, or ask questions.
+- **💬 [Join the Discussions](https://github.com/eloicito333/dementia-assistant/discussions)**: Share your insights, provide feedback, or ask questions.
+- **🐛 [Report Issues](https://github.com/eloicito333/dementia-assistant/issues)**: Submit bugs found or log feature requests for the `dementia-assistant` project.
+- **💡 [Submit Pull Requests](https://github.com/eloicito333/dementia-assistant/blob/main/CONTRIBUTING.md)**: Review open PRs, and submit your own PRs.
 
 <details closed>
 <summary>Contributing Guidelines</summary>
@@ -269,7 +466,7 @@ Contributions are welcome! Here are several ways you can contribute:
 1. **Fork the Repository**: Start by forking the project repository to your github account.
 2. **Clone Locally**: Clone the forked repository to your local machine using a git client.
    ```sh
-   git clone https://github.com/eloicito333/dementia-assistant/
+   git clone https://github.com/eloicito333/dementia-assistant
    ```
 3. **Create a New Branch**: Always work on a new branch, giving it a descriptive name.
    ```sh
@@ -302,4 +499,12 @@ Contributions are welcome! Here are several ways you can contribute:
 
 ## 🎗 License
 
-This project is protected under the [MODIFIED CREATIVE COMMONS](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
+This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
+
+---
+
+## 🙌 Acknowledgments
+
+- List any resources, contributors, inspiration, etc. here.
+
+---
