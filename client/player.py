@@ -36,7 +36,7 @@ class AudioPlayer:
             self.output_queue.queue.clear()
         
 
-    def stop(self):
+    def stop(self, arg):
         thread=Thread(daemon=True, name="AIAssistant_stop_playing", target=self._stop)
         thread.start()
         return thread

@@ -35,10 +35,12 @@ remindersRoutes.post("/", async (req, res) => {
 
 // READ: Get all items
 remindersRoutes.get("/", async (req, res) => {
+  console.log("all reminders requested")
   const collection = db.collection('reminders-eloi-buil-cuadrat-3000')
 
   try {
     const items = await collection.find().toArray();
+    console.log(items)
     res.status(200).send(items);
   } catch (err) {
     console.error(err)

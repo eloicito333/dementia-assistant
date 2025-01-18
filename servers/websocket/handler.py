@@ -10,6 +10,7 @@ from openai_client import OPENAI_CLIENT
 class OutputFormat(BaseModel):
     corrected_text: str
     confidential: Optional[dict[str, str]]
+    future_event: Optional[str]
 
 class Handler:
     def __init__(self, assistant):
@@ -64,7 +65,16 @@ Els passos per acomplir aquesta tasca són:
     - Afegir el nom clau com a clau al diccionari de sortida ("confidential") i al valor que oculta com el seu valor.
  
 En el cas que no hi hagi contingut confidencial, s'ha de deixar la clau "confidential" buida.
-Els missatges rebuts per dur a terme aquesta feina van dirigits a una tercera persona, així que no han de ser resposts, només s'ha d'analitzar la seva confidencialitat."""
+Els missatges rebuts per dur a terme aquesta feina van dirigits a una tercera persona, així que no han de ser resposts, només s'ha d'analitzar la seva confidencialitat.
+El text corregit obtingut en aquesta primera tasca ha de ser el valor de la sortida "corrected_text". La següent tasca no ha d'influenciar el resultat de sortida de la primera tasca.
+
+Un cop duta a terme la tasca anterior i el contingut confidencial estigui emmascarat, identifica si en el text es parla d'un esdeveniment futur. Si és així:
+    - Analiza la situació, i decideix si és important recordar-li-ho a una persona amb demència (segurament sí). Si és que sí, segueix amb el següent pas.
+    - Esbrina en quin moment (any, mes, dia, hora, minut)
+    - Un cop entenguis de què tracta l'esdeveniment i quan passa, sintetitza un prompt on expliquis que s'ha dit (l'esdeveniment futur) amb una mica de context, i esmenta el moment en el que passarà (si no l'has aconseguit esbrinar, digues que no el saps i que se li ha de preguntar a l'usuari)
+    - Aquest prompt ha de ser el valor de la clau "future_event"
+    
+En el cas de no haver identificat cap event futur, deixa la clau "future_event" buida."""
         result = self.client.beta.chat.completions.parse(
             model="gpt-4o-mini",
             temperature=temperature,
@@ -98,4 +108,4 @@ Els missatges rebuts per dur a terme aquesta feina van dirigits a una tercera pe
             "text": cured_text_obj.corrected_text,
             "tokens": metadated_text["tokens"]
         }
-        self.assistant.handle(new_metadated_text, confidential=cured_text_obj.confidential, speaker=speaker)
+        self.assistant.handle(new_metadated_text, confidential=cured_text_obj.confidential, future_event=cured_text_obj.future_event, speaker=speaker)

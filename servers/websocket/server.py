@@ -31,6 +31,8 @@ class SocketServer:
         #other properties
         self.indata_sender=None
 
+        self.run_reminders_setup = None
+
     def _authenticate_token(self, token):
         return authenticate_token(token)
     
@@ -41,6 +43,8 @@ class SocketServer:
         if token and self._authenticate_token(token):
             print('Client connected:', sid)
             self.indata_sender = sid
+            self.run_reminders_setup()
+            
         else:
             print('Unauthorized connection attempt from:', sid)
             self.sio.disconnect(sid)  # Disconnect unauthorized clients

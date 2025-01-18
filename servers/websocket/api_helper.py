@@ -25,19 +25,32 @@ class RemindersDB:
     def __init__(self, url, headers):
         self.url = url
         self.headers = headers
+        self.refresh_reminders_fn = None
+
+    def refresh_reminders(self):
+        if self.refresh_reminders_fn is None:
+            return
+        
+        self.refresh_reminders_fn()
 
     def post_reminder(self, reminder):
         response = requests.post(self.url+"/reminders", json=reminder, headers=self.headers)
+
+        self.refresh_reminders()
         
         return response.json()
     
     def update_reminder(self, id, update_fields):
-        response = requests.put(self.url+"/reminders/"+ id, json=update_fields, headers=self.headers)
+        response = requests.put(self.url+"/reminders/"+ str(id), json=update_fields, headers=self.headers)
+
+        self.refresh_reminders()
         
         return response.json()
     
     def delete_reminder(self, id):
-        response = requests.delete(self.url+"/reminders/" + id, headers=self.headers)
+        response = requests.delete(self.url+"/reminders/" + str(id), headers=self.headers)
+
+        self.refresh_reminders()
         
         return response.json()
     
@@ -47,7 +60,7 @@ class RemindersDB:
         return response.json()
     
     def get_reminder(self, id):
-        response = requests.get(self.url+"/reminders/" + id, headers=self.headers)
+        response = requests.get(self.url+"/reminders/" + str(id), headers=self.headers)
         
         return response.json()
 

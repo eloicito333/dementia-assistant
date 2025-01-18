@@ -1,6 +1,7 @@
 from transcriber import Transcriber, transcriber_utils
 from stream_handler import StreamHandler
 from handler import Handler
+from reminders_manager import RemindersManager
 from main_assistant import MainAssistant
 from player import AudioPlayer
 
@@ -36,6 +37,10 @@ def main():
 
     #initialize assistant
     main_assistant = MainAssistant(name=ASSISTANT_NAME, audio_player=audio_player)
+
+    #initialize and run reminders_manager
+    reminders_manager = RemindersManager(assistant=main_assistant)
+    reminders_manager.run()
 
     #initialize the transcription handler
     handler= Handler(assistant=main_assistant)

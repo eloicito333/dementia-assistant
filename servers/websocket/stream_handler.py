@@ -8,7 +8,7 @@ from threading import Thread
 
 from transcriber import transcriber_utils
 
-from  program_settings import verbose, no_delete
+from program_settings import verbose, no_delete
 
 from essential_data import USER_GENDER, USER_NAME, ASSISTANT_NAME
 

@@ -35,6 +35,15 @@ class ContextWindow:
             }
             self.current_usage_tokens += usage
 
+        elif get_subscriptable(message, "role") == "system-inset":
+            self.context_window.append({
+                "message": {
+                    "role": "system",
+                    "content": get_subscriptable(message, "content")
+                },
+                "usage": usage
+            })
+
         else:
             self.context_window.append({
                 "message": message,
@@ -87,6 +96,12 @@ Les teves respostes han de ser donades a partir de l'informació que tens a l'ab
 Pot ser que l'usuari es refereixi a misssatges que ha dit just abans d'iniciar aquesta conversa i que també anaven dirigits a tu, si és així, utilitza l'eina "get_current_datetime" per saber l'hora actual i després busca un missatge amb una hora similar (més gran que fa 1 minut)."""
         }
 
+        self.system_message_when_future_event = """En la conversa de l'usuari s'ha detectat un esdeveniment futur. Aquest és el missatge sintetitzat per la IA que ha detectat el missatge: "{future_event}". La data d'avui és: {date}. A continuació pregunta a l'usuari si ell ha de realitzar aquest esdeveniment i si en vol afegir un recordatori (amb la seva confirmació ja n'hi ha prou perquè l'afegeixis utilitzant l'eina "create_reminder")."""
+
+        self.system_message_when_reminder_time = """Acaba de saltar un recordatori! És hora d'avisar a l'usuari d'un nou esdeveniment. L'esdeveniment és: {reminder}
+La data actual és: {date}.
+L'usuari molt probablement no se'n recordi del que ha de fer, així que recorda-li amb un to amable i sigues cuidadós."""
+
         self.function_handler = FunctionHandler()
 
     def save_to_db(self, text, speaker, inConversation, confidential=None):
@@ -108,19 +123,35 @@ Pot ser que l'usuari es refereixi a misssatges que ha dit just abans d'iniciar a
         if verbose: print("TALKING: ", text)
         self.audio_player.tts_and_play(text)
 
-    def _conversate(self, metadated_text, speaker, confidential, mode="normal", temperature=.6):
+    def _conversate(self, metadated_text="", speaker="", confidential="", future_event=None, reminder=None, mode="normal", temperature=.6):
         if verbose: print("CONVERSATING: ", metadated_text, speaker, confidential, mode)
-        self.save_to_db(text=metadated_text["text"], speaker=speaker, inConversation=True, confidential=confidential)
+        if not reminder: self.save_to_db(text=metadated_text["text"], speaker=speaker, inConversation=True, confidential=confidential)
 
         self.is_interacting = True
+
         self.context_window.add_message({
-            "role": "system",
-            "content": self.system_prompts[mode]
-        })
-        self.context_window.add_message({
-            "role": "user",
-            "content": metadated_text["text"]
-        }, usage=metadated_text["tokens"])
+                "role": "system",
+                "content": self.system_prompts[mode]
+            })
+        
+        if future_event is not None:
+            print("future event: ", future_event)
+            self.context_window.add_message({
+                "role": "user",
+                "content": self.system_message_when_future_event.format(future_event=future_event, date=self.function_handler.handlers["get_current_datetime"].apply(""))
+            })
+
+        elif reminder:
+            self.context_window.add_message({
+                "role": "user",
+                "content": self.system_message_when_reminder_time.format(reminder=reminder, date=self.function_handler.handlers["get_current_datetime"].apply(""))
+            })
+        
+        else:
+            self.context_window.add_message({
+                "role": "user",
+                "content": metadated_text["text"]
+            }, usage=metadated_text["tokens"])
         
         finish_reason = None
         finish_reasons_to_continue = ["tool_calls", "function_call"]
@@ -155,8 +186,12 @@ Pot ser que l'usuari es refereixi a misssatges que ha dit just abans d'iniciar a
 
         self.last_interaction = datetime.datetime.now()
 
+    
+    def reminder_time(self, reminder):
+        self._conversate(reminder=reminder)
 
-    def handle(self, metadated_text, confidential, speaker):
+
+    def handle(self, metadated_text, confidential, future_event, speaker):
         text = metadated_text["text"]
 
         #see if there has been recent interaction (continue conversation)
@@ -167,6 +202,9 @@ Pot ser que l'usuari es refereixi a misssatges que ha dit just abans d'iniciar a
         elif(self._detect_awaken(text)):
             self.context_window.clear()
             self._conversate(metadated_text, speaker=speaker, confidential=confidential)
+
+        elif(future_event):
+            self._conversate(metadated_text, speaker=speaker, confidential=confidential, future_event=future_event)
 
         else:
             self.save_to_db(text=text, speaker=speaker, inConversation=False, confidential=confidential)

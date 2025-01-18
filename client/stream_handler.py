@@ -63,7 +63,7 @@ class AudioBuffer:
 
 
 class StreamHandler:
-    def __init__(self, audio_player, threshold=0.01, input_device=None, output_device=None, contaminated_streams=False):
+    def __init__(self, audio_player, threshold=0.005, input_device=None, output_device=None, contaminated_streams=False):
         self.contaminated_streams = contaminated_streams
 
         self.threshold = threshold
@@ -120,16 +120,25 @@ class StreamHandler:
     def callback(self, indata, outdata, frames, _time, status):
 
         # Omplir outdata amb l'àudio que es vol reproduir
+        is_assistant_talking = False
         try:
             data = self.audio_player.output_queue.get_nowait()
+            if (data is not None):
+                is_assistant_talking = True
+            else:
+                is_assistant_talking = False
             outdata[:] = data
             # Actualitzar audio_player.output_buffer per a cancel·lació
             self.audio_player.output_buffer[:frames, :] = data
 
         except queue.Empty:
+            is_assistant_talking = False
             outdata.fill(0)
             self.audio_player.output_buffer.fill(0)
-
+        
+        if is_assistant_talking:
+            return
+        
         if not any(indata):
             return
         
@@ -205,8 +214,8 @@ class StreamHandler:
         output_device = sd.default.device[1] if sd.default.device[1] is not None else None
 
         # If you have specific devices set, use them; otherwise, use defaults
-        show_input_device = input_device if input_device is not None else sd.default.device[0]
-        show_output_device = output_device if output_device is not None else sd.default.device[1]
+        show_input_device = self.input_device if self.input_device is not None else (input_device if input_device is not None else sd.default.device[0])
+        show_output_device = self.output_device if self.output_device is not None else (output_device if output_device is not None else sd.default.device[1])
 
         # Print device information
         print(f"\033[32mLive input device: \033[37m{sd.query_devices(device=show_input_device)['name']}\033[0m")

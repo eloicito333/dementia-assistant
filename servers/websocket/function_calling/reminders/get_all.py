@@ -16,7 +16,7 @@ class GetAllReminders(OpenAIFunction):
         self.description = description
         self.meanwhile = ["Mmm...", "Un momenteeet..."]
 
-    def apply(self):
+    def apply(self, _):
 
         results = api_helper.reminders_db.get_all_reminders()
 
