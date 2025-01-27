@@ -22,8 +22,11 @@ class AudioPlayer:
             
             self.output_queue.put(block)
 
+        def stop_for_socket(_):
+            self.stop()
+
         socket.on("outdata", outdata)
-        socket.on("stop_audio", self.stop)
+        socket.on("stop_audio", stop_for_socket)
 
 
 

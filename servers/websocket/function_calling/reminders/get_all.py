@@ -2,7 +2,7 @@ from api_helper import api_helper
 from function_calling.function_parent_class import OpenAIFunction
 
 description = {
-    "name": "get_all_reminder",
+    "name": "get_all_reminders",
     "description": "Get all existing reminders.",
 }
 

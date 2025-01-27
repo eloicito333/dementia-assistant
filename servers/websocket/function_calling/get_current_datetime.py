@@ -21,8 +21,6 @@ class GetCurerntDatetime(OpenAIFunction):
         self.meanwhile = ["Mmm...", "Deixam pensar..."]
 
     def apply(self, query):
-        # Implementation to retrieve data from the vector database based on the query
-        # Returns a list of relevant documents
         date = datetime.now().strftime("%d-%m-%Y%H:%M:%S")
         
         return f"´{self._get_weekday()}, {date}"
